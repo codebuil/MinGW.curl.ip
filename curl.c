@@ -36,7 +36,7 @@ int main(int argc,char *argv[]) {
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = inet_addr(hostsip); // IP address of google.com
-    server_addr.sin_port = htons(80); // HTTP port
+    server_addr.sin_port = htons(8082); // HTTP port
     if (connect(client_socket, (struct sockaddr*)&server_addr, sizeof(server_addr)) == SOCKET_ERROR) {
         printf("Error connecting to server.\n");
         closesocket(client_socket);
@@ -45,7 +45,7 @@ int main(int argc,char *argv[]) {
     }
 
     // Construct HTTP request
-    sprintf(request, "GET / HTTP/1.1\r\nHost: www.google.com\r\nConnection: close\r\n\r\n");
+    sprintf(request,hosts);
 
     // Send HTTP request
     send(client_socket, request, strlen(request), 0);
