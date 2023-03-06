@@ -14,7 +14,7 @@ int main(int argc,char *argv[]) {
     char request[BUF_SIZE];
     printf("\033c\033[44;30m");
     strcpy(hosts,"GET / HTTP/1.1\r\nHost: ");
-    strcpy(hostsip,"www.microsoft.com");
+    strcpy(hostsip,"www-microsoft.com");
     if(argc>1)strcpy(hostsip,argv[1]);
     strcat(hosts,hostsip);
     strcat(hosts,"\r\nConnection: close\r\n\r\n");
